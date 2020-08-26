@@ -1,0 +1,18 @@
+{
+  "replace": false,
+  "values": [
+    "ironjetpacks:wood_jetpack",
+    "ironjetpacks:stone_jetpack",
+    "ironjetpacks:iron_jetpack",
+    "ironjetpacks:diamond_jetpack",
+    "ironjetpacks:gold_jetpack",
+    "ironjetpacks:emerald_jetpack",
+    "ironjetpacks:bronze_jetpack",
+    "ironjetpacks:silver_jetpack",
+    "ironjetpacks:electrum_jetpack",
+    "ironjetpacks:invar_jetpack",
+    "ironjetpacks:steel_jetpack",
+    "ironjetpacks:platinum_jetpack",
+    "ironjetpacks:creative_jetpack"
+  ]
+}

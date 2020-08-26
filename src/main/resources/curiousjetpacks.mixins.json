@@ -1,0 +1,22 @@
+{
+  "required": true,
+  "package": "tfar.curiousjetpacks.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "refmap": "curiousjetpacks.refmap.json",
+  "mixins": [
+    "BipedArmorLayerMixin",
+    "HudHandlerMixin",
+    "JetpackItemMixin",
+    "JetpackUtilsMixin",
+    "KeybindHandlerMixin",
+    "ToggleEngineMessageMixin",
+    "ToggleHoverMessageMixin"
+  ],
+  "client": [
+    "JetpackClientHandlerMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "minVersion": "0.8"
+}

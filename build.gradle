@@ -11,12 +11,15 @@ buildscript {
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
 }
+plugins {
+    id "com.wynprice.cursemaven" version "2.1.0"
+}
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
 apply plugin: 'maven-publish'
 
-version = "${mod_version}"
+version = "${mod_version}-${mc_version}"
 group = "com.tfar.${modid}" // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = "${modid}"
 
@@ -81,7 +84,7 @@ repositories{
     }
     jcenter()
     mavenCentral()
-
+    maven { url = "https://maven.theillusivec4.top/" }
 }
 
 dependencies {
@@ -93,6 +96,13 @@ dependencies {
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
     // compile "some.group:artifact:version"
+    runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}") // Trinkets, REQUIRED
+    compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
+
+    compile fg.deobf("curse.maven:iron-jetpacks:3032824")
+
+    compile fg.deobf("curse.maven:cucumber:3041485")
+
 
     // Real examples
     // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
