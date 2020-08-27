@@ -18,6 +18,6 @@ public class JetpackUtilsMixin {
 									,remap = false)
 	private static ItemStack modifyCheck(ItemStack original,PlayerEntity player) {
 		if (original.getItem() instanceof JetpackItem) return original;
-		return Utils.getJetpackCurio(original, Minecraft.getInstance().player);
+		return Utils.getJetpackCurio(original, player);
 	}
 }
