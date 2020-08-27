@@ -13,7 +13,10 @@ import tfar.curiousjetpacks.Utils;
 @Mixin(JetpackClientHandler.class)
 public class JetpackClientHandlerMixin {
 
-	@ModifyVariable(method = "onClientTick", at = @At(value = "INVOKE",target = "net/minecraft/item/ItemStack.getItem()Lnet/minecraft/item/Item;"),remap = false)
+	@ModifyVariable(method = "onClientTick",
+					at = @At(value = "INVOKE_ASSIGN",
+									target = "net/minecraft/client/entity/player/ClientPlayerEntity.getItemStackFromSlot(Lnet/minecraft/inventory/EquipmentSlotType;)Lnet/minecraft/item/ItemStack;",
+									ordinal = 0),remap = false)
 	private ItemStack modifyCheck(ItemStack original) {
 		if (original.getItem() instanceof JetpackItem) return original;
 		return Utils.getJetpackCurio(original, Minecraft.getInstance().player);

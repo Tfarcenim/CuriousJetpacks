@@ -9,6 +9,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 import tfar.curiousjetpacks.Utils;
 
+//easier than copying the code into my own class
 @Mixin(JetpackItem.class)
 public class JetpackItemMixin {
 	@Redirect(method = "onArmorTick", at = @At(value = "INVOKE",

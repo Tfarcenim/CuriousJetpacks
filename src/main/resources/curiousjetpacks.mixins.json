@@ -4,15 +4,15 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "curiousjetpacks.refmap.json",
   "mixins": [
-    "BipedArmorLayerMixin",
-    "HudHandlerMixin",
     "JetpackItemMixin",
     "JetpackUtilsMixin",
-    "KeybindHandlerMixin",
     "ToggleEngineMessageMixin",
     "ToggleHoverMessageMixin"
   ],
   "client": [
+    "BipedArmorLayerMixin",
+    "HudHandlerMixin",
+    "KeybindHandlerMixin",
     "JetpackClientHandlerMixin"
   ],
   "injectors": {
