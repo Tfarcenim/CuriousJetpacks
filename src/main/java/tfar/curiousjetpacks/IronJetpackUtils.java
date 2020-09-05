@@ -5,7 +5,9 @@ import net.minecraft.entity.LivingEntity;
 import net.minecraft.item.ItemStack;
 import top.theillusivec4.curios.api.CuriosApi;
 
-public class Utils {
+public class IronJetpackUtils {
+
+	public static boolean redirect = false;
 
 	public static ItemStack getJetpackCurio(ItemStack original, LivingEntity playerEntity) {
 		ItemStack stack1 = CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof JetpackItem, playerEntity)

@@ -19,7 +19,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import tfar.curiousjetpacks.Utils;
+import tfar.curiousjetpacks.IronJetpackUtils;
 
 import javax.annotation.Nullable;
 
@@ -51,7 +51,7 @@ abstract class BipedArmorLayerMixin<T extends LivingEntity, M extends BipedModel
 
 	private void renderJetPackCurio(MatrixStack matrices, IRenderTypeBuffer p_241739_2_, T livingEntity, int p_241739_5_, A model) {
 		EquipmentSlotType slotType = EquipmentSlotType.CHEST;
-		ItemStack itemstack = Utils.getJetpackCurio(livingEntity);
+		ItemStack itemstack = IronJetpackUtils.getJetpackCurio(livingEntity);
 		if (itemstack.getItem() instanceof ArmorItem) {
 			ArmorItem armoritem = (ArmorItem)itemstack.getItem();
 			if (armoritem.getEquipmentSlot() == slotType) {

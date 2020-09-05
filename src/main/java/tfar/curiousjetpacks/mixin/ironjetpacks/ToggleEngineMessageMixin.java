@@ -1,4 +1,4 @@
-package tfar.curiousjetpacks.mixin;
+package tfar.curiousjetpacks.mixin.ironjetpacks;
 
 import com.blakebr0.ironjetpacks.item.JetpackItem;
 import com.blakebr0.ironjetpacks.network.message.ToggleEngineMessage;
@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import tfar.curiousjetpacks.Utils;
+import tfar.curiousjetpacks.IronJetpackUtils;
 
 import java.util.function.Supplier;
 
@@ -22,7 +22,7 @@ public class ToggleEngineMessageMixin {
 		context.get().enqueueWork(() -> {
 			ServerPlayerEntity player = context.get().getSender();
 			if (player != null) {
-				ItemStack stack = Utils.getJetpackCurio(player);
+				ItemStack stack = IronJetpackUtils.getJetpackCurio(player);
 				Item item = stack.getItem();
 				if (item instanceof JetpackItem) {
 					JetpackItem jetpack = (JetpackItem) item;
