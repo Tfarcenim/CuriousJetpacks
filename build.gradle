@@ -99,9 +99,9 @@ dependencies {
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}") // Trinkets, REQUIRED
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
 
-    compile fg.deobf("curse.maven:iron-jetpacks:3032824")
+    compile fg.deobf("curse.maven:iron-jetpacks:3094070")
 
-    compile fg.deobf("curse.maven:cucumber:3041485")
+    compile fg.deobf("curse.maven:cucumber:3097622")
 
 
     // Real examples

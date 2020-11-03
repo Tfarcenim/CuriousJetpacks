@@ -1,19 +1,61 @@
 {
   "replace": false,
   "values": [
-    "ironjetpacks:wood_jetpack",
-    "ironjetpacks:stone_jetpack",
-    "ironjetpacks:copper_jetpack",
-    "ironjetpacks:iron_jetpack",
-    "ironjetpacks:diamond_jetpack",
-    "ironjetpacks:gold_jetpack",
-    "ironjetpacks:emerald_jetpack",
-    "ironjetpacks:bronze_jetpack",
-    "ironjetpacks:silver_jetpack",
-    "ironjetpacks:electrum_jetpack",
-    "ironjetpacks:invar_jetpack",
-    "ironjetpacks:steel_jetpack",
-    "ironjetpacks:platinum_jetpack",
-    "ironjetpacks:creative_jetpack"
+    {
+      "id": "ironjetpacks:wood_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:stone_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:copper_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:iron_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:diamond_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:gold_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:emerald_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:bronze_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:silver_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:electrum_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:invar_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:steel_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:platinum_jetpack",
+      "required": false
+    },
+    {
+      "id": "ironjetpacks:creative_jetpack",
+      "required": false
+    }
   ]
 }
