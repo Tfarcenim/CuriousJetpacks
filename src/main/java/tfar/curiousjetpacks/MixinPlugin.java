@@ -1,13 +1,11 @@
-package tfar.curiousjetpacks.mixin;
+package tfar.curiousjetpacks;
 
-import net.minecraftforge.fml.ModList;
+import net.minecraftforge.fml.loading.FMLLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
 
-import java.io.File;
 import java.util.List;
-import java.util.Locale;
 import java.util.Set;
 
 public class MixinPlugin implements IMixinConfigPlugin {
@@ -24,9 +22,8 @@ public class MixinPlugin implements IMixinConfigPlugin {
 	@Override
 	public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
 		String[] modids = new String[]{"simplyjetpacks","ironjetpacks"};
-		boolean[] loaded = new boolean[]{isLoaded(modids[0]),isLoaded(modids[1])};
-		for (int i = 0; i < modids.length; i++) {
-			if (targetClassName.contains(modids[i]) && loaded[i]) {
+		for (String modid : modids) {
+			if (mixinClassName.contains(modid) && isLoaded(modid)) {
 				return true;
 			}
 		}
@@ -34,20 +31,12 @@ public class MixinPlugin implements IMixinConfigPlugin {
 	}
 
 	public static boolean isLoaded(String modid) {
-		try {
-			File mods = new File("./mods");
-			File[] files = mods.listFiles();
-			if (files != null) {
-				for (File file : files) {
-					if (file.getName().toLowerCase(Locale.ROOT).startsWith(modid)) {
-						return true;
-					}
-				}
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-		return false;
+		boolean isLoaded = FMLLoader.getLoadingModList()
+				.getModFiles().stream()
+				.anyMatch(modFileInfo -> modFileInfo.getMods().stream()
+				.anyMatch(iModInfo -> iModInfo.getModId().equals(modid)));
+		//System.out.println(modid+" : "+isLoaded);
+		return isLoaded;
 	}
 
 	@Override

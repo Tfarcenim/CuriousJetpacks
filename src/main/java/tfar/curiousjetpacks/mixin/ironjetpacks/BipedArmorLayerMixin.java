@@ -1,4 +1,4 @@
-package tfar.curiousjetpacks.mixin;
+package tfar.curiousjetpacks.mixin.ironjetpacks;
 
 import com.mojang.blaze3d.matrix.MatrixStack;
 import net.minecraft.client.renderer.IRenderTypeBuffer;

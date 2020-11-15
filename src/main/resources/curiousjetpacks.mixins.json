@@ -4,6 +4,7 @@
   "compatibilityLevel": "JAVA_8",
   "refmap": "curiousjetpacks.refmap.json",
   "mixins": [
+    "ironjetpacks.BipedArmorLayerMixin",
     "ironjetpacks.JetpackItemMixin",
     "ironjetpacks.JetpackUtilsMixin",
     "ironjetpacks.PlayerEntityMixin",
@@ -11,7 +12,7 @@
     "ironjetpacks.ToggleHoverMessageMixin"
   ],
   "client": [
-    "BipedArmorLayerMixin",
+    "ironjetpacks.BipedArmorLayerMixin",
     "ironjetpacks.HudHandlerMixin",
     "ironjetpacks.JetpackClientHandlerMixin",
     "ironjetpacks.KeybindHandlerMixin"
@@ -19,5 +20,6 @@
   "injectors": {
     "defaultRequire": 1
   },
-  "minVersion": "0.8"
+  "minVersion": "0.8",
+  "plugin": "tfar.curiousjetpacks.MixinPlugin"
 }

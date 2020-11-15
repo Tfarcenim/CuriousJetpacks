@@ -1,8 +1,8 @@
 package tfar.curiousjetpacks;
 
-import com.blakebr0.ironjetpacks.item.JetpackItem;
-import net.minecraft.block.Block;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Direction;
 import net.minecraft.util.ResourceLocation;
@@ -11,16 +11,11 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
@@ -46,9 +41,13 @@ public class CuriousJetpacks {
 		InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> SlotTypePreset.BODY.getMessageBuilder().build());
 	}
 
+	public static final ResourceLocation TAG_ID = new ResourceLocation(MODID,"jetpacks");
+
+	public static final ITag<Item> jetpacks = ItemTags.makeWrapperTag(TAG_ID.toString());
+
 	private void attachCaps(AttachCapabilitiesEvent<ItemStack> e) {
 		ItemStack stack = e.getObject();
-		if (stack.getItem() instanceof JetpackItem) {
+		if (ItemTags.getCollection().get(TAG_ID) != null && stack.getItem().isIn(jetpacks)) {
 			JetpackCurio arrowCurio = new JetpackCurio(stack);
 			e.addCapability(CuriosCapability.ID_ITEM, new ICapabilityProvider() {
 				final LazyOptional<ICurio> curio = LazyOptional.of(() -> arrowCurio);
