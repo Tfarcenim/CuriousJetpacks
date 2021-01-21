@@ -31,10 +31,7 @@ public class MixinPlugin implements IMixinConfigPlugin {
 	}
 
 	public static boolean isLoaded(String modid) {
-		boolean isLoaded = FMLLoader.getLoadingModList()
-				.getModFiles().stream()
-				.anyMatch(modFileInfo -> modFileInfo.getMods().stream()
-				.anyMatch(iModInfo -> iModInfo.getModId().equals(modid)));
+		boolean isLoaded = FMLLoader.getLoadingModList().getModFileById(modid) != null;
 		//System.out.println(modid+" : "+isLoaded);
 		return isLoaded;
 	}

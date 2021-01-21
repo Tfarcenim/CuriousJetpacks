@@ -2,6 +2,7 @@ package tfar.curiousjetpacks.mixin.ironjetpacks;
 
 import com.blakebr0.ironjetpacks.item.JetpackItem;
 import com.blakebr0.ironjetpacks.network.message.ToggleHoverMessage;
+import com.blakebr0.ironjetpacks.util.JetpackUtils;
 import net.minecraft.entity.player.ServerPlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -25,8 +26,7 @@ public class ToggleHoverMessageMixin {
 				ItemStack stack = IronJetpackUtils.getJetpackCurio(player);
 				Item item = stack.getItem();
 				if (item instanceof JetpackItem) {
-					JetpackItem jetpack = (JetpackItem) item;
-					jetpack.toggleHover(stack);
+					JetpackUtils.toggleHover(stack);
 				}
 			}
 		});
