@@ -19,7 +19,7 @@ public class JetpackClientHandlerMixin {
 	@Inject(method = "onClientTick", at = @At(value = "HEAD"),remap = false)
 	private void modifyCheck(TickEvent.ClientTickEvent event, CallbackInfo ci) {
 		if (Minecraft.getInstance().player == null)return;
-		ItemStack original = Minecraft.getInstance().player.getItemStackFromSlot(EquipmentSlotType.CHEST);
+		ItemStack original = Minecraft.getInstance().player.getItemBySlot(EquipmentSlotType.CHEST);
 		if (original.getItem() instanceof JetpackItem) return;
 		IronJetpackUtils.redirect = true;
 	}

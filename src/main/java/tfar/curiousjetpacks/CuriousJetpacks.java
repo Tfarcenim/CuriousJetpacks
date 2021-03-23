@@ -43,11 +43,11 @@ public class CuriousJetpacks {
 
 	public static final ResourceLocation TAG_ID = new ResourceLocation(MODID,"jetpacks");
 
-	public static final ITag<Item> jetpacks = ItemTags.makeWrapperTag(TAG_ID.toString());
+	public static final ITag<Item> jetpacks = ItemTags.bind(TAG_ID.toString());
 
 	private void attachCaps(AttachCapabilitiesEvent<ItemStack> e) {
 		ItemStack stack = e.getObject();
-		if (ItemTags.getCollection().get(TAG_ID) != null && stack.getItem().isIn(jetpacks)) {
+		if (ItemTags.getAllTags().getTag(TAG_ID) != null && stack.getItem().is(jetpacks)) {
 			JetpackCurio arrowCurio = new JetpackCurio(stack);
 			e.addCapability(CuriosCapability.ID_ITEM, new ICapabilityProvider() {
 				final LazyOptional<ICurio> curio = LazyOptional.of(() -> arrowCurio);
