@@ -17,7 +17,7 @@ public class JetpackItemMixin {
 
 	@Inject(method = "onArmorTick", at = @At(value = "HEAD"),remap = false)
 	private void modifyCheck(ItemStack stack, World world, PlayerEntity player, CallbackInfo ci) {
-		if (player.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof JetpackItem) return;
+		if (player.getItemBySlot(EquipmentSlotType.CHEST).getItem() instanceof JetpackItem) return;
 		IronJetpackUtils.redirect = true;
 	}
 }

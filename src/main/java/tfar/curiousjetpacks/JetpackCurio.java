@@ -21,7 +21,7 @@ public class JetpackCurio implements ICurio {
 	@Override
 	public void curioTick(String identifier, int index, LivingEntity livingEntity) {
 		if (livingEntity instanceof PlayerEntity) {
-			jet.onArmorTick(livingEntity.world, (PlayerEntity)livingEntity);
+			jet.onArmorTick(livingEntity.level, (PlayerEntity)livingEntity);
 		}
 	}
 }

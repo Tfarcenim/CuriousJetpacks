@@ -12,7 +12,7 @@ import tfar.curiousjetpacks.IronJetpackUtils;
 @Mixin(PlayerEntity.class)
 public class PlayerEntityMixin {
 
-	@Inject(method = "getItemStackFromSlot",at = @At("INVOKE"),cancellable = true)
+	@Inject(method = "getItemBySlot",at = @At("INVOKE"),cancellable = true)
 	private void interceptCheck(EquipmentSlotType slotIn, CallbackInfoReturnable<ItemStack> cir) {
 		if (IronJetpackUtils.redirect) {
 			ItemStack stack = IronJetpackUtils.getJetpackCurio((PlayerEntity)(Object)this);

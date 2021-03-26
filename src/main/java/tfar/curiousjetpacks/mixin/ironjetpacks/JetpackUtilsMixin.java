@@ -14,7 +14,7 @@ import tfar.curiousjetpacks.IronJetpackUtils;
 public class JetpackUtilsMixin {
 	@Inject(method = "isFlying",at = @At("HEAD"), remap = false)
 	private static void modifyCheck(PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
-		if (player.getItemStackFromSlot(EquipmentSlotType.CHEST).getItem() instanceof JetpackItem) return;
+		if (player.getItemBySlot(EquipmentSlotType.CHEST).getItem() instanceof JetpackItem) return;
 		IronJetpackUtils.redirect = true;
 	}
 }
