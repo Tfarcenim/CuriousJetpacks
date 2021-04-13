@@ -7,7 +7,7 @@ import top.theillusivec4.curios.api.CuriosApi;
 
 public class IronJetpackUtils {
 
-	public static boolean redirect = false;
+	public static ThreadLocal<Boolean> redirect = ThreadLocal.withInitial(() -> false);
 
 	public static ItemStack getJetpackCurio(ItemStack original, LivingEntity playerEntity) {
 		ItemStack stack1 = CuriosApi.getCuriosHelper().findEquippedCurio(stack -> stack.getItem() instanceof JetpackItem, playerEntity)

@@ -20,6 +20,6 @@ public class HudHandlerMixin {
 	private void modifyCheck(RenderGameOverlayEvent.Post event, CallbackInfo ci) {
 		ItemStack original = Minecraft.getInstance().player.getItemBySlot(EquipmentSlotType.CHEST);
 		if (original.getItem() instanceof JetpackItem) return;
-		IronJetpackUtils.redirect = true;
+		IronJetpackUtils.redirect.set(true);
 	}
 }

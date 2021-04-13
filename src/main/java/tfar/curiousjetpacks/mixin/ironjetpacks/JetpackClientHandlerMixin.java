@@ -21,6 +21,6 @@ public class JetpackClientHandlerMixin {
 		if (Minecraft.getInstance().player == null)return;
 		ItemStack original = Minecraft.getInstance().player.getItemBySlot(EquipmentSlotType.CHEST);
 		if (original.getItem() instanceof JetpackItem) return;
-		IronJetpackUtils.redirect = true;
+		IronJetpackUtils.redirect.set(true);
 	}
 }

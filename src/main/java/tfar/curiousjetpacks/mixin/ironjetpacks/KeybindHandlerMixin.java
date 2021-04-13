@@ -18,6 +18,6 @@ public class KeybindHandlerMixin {
 	private void modifyCheck(CallbackInfo ci) {
 		if (Minecraft.getInstance().player == null) return;
 		if (Minecraft.getInstance().player.getItemBySlot(EquipmentSlotType.CHEST).getItem() instanceof JetpackItem) return;
-		IronJetpackUtils.redirect = true;
+		IronJetpackUtils.redirect.set(true);
 	}
 }

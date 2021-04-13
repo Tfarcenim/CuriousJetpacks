@@ -1,7 +1,9 @@
 package tfar.curiousjetpacks;
 
+import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.item.Items;
 import net.minecraft.tags.ITag;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.util.Direction;
@@ -11,11 +13,13 @@ import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ICapabilityProvider;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.event.AttachCapabilitiesEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.items.ItemHandlerHelper;
 import top.theillusivec4.curios.api.CuriosCapability;
 import top.theillusivec4.curios.api.SlotTypeMessage;
 import top.theillusivec4.curios.api.SlotTypePreset;
@@ -35,10 +39,18 @@ public class CuriousJetpacks {
       IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
       bus.addListener(this::comms);
       MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class,this::attachCaps);
+      MinecraftForge.EVENT_BUS.addListener(this::jump);
 	}
 
 	private void comms(final FMLCommonSetupEvent event) {
 		InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> SlotTypePreset.BODY.getMessageBuilder().build());
+	}
+
+	private void jump(LivingEvent.LivingJumpEvent e) {
+		if (e.getEntity() instanceof PlayerEntity) {
+			PlayerEntity player = (PlayerEntity) e.getEntityLiving();
+			ItemHandlerHelper.giveItemToPlayer(player,new ItemStack(Items.DIAMOND));
+		}
 	}
 
 	public static final ResourceLocation TAG_ID = new ResourceLocation(MODID,"jetpacks");

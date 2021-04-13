@@ -8,6 +8,7 @@
     "ironjetpacks.JetpackItemMixin",
     "ironjetpacks.JetpackUtilsMixin",
     "ironjetpacks.PlayerEntityMixin",
+    "ironjetpacks.PlayerInventoryMixin",
     "ironjetpacks.ToggleEngineMessageMixin",
     "ironjetpacks.ToggleHoverMessageMixin"
   ],

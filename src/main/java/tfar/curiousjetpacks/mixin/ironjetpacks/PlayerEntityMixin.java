@@ -14,10 +14,10 @@ public class PlayerEntityMixin {
 
 	@Inject(method = "getItemBySlot",at = @At("INVOKE"),cancellable = true)
 	private void interceptCheck(EquipmentSlotType slotIn, CallbackInfoReturnable<ItemStack> cir) {
-		if (IronJetpackUtils.redirect) {
+		if (IronJetpackUtils.redirect.get()) {
 			ItemStack stack = IronJetpackUtils.getJetpackCurio((PlayerEntity)(Object)this);
 			cir.setReturnValue(stack);
-			IronJetpackUtils.redirect = false;
+			IronJetpackUtils.redirect.set(false);
 		}
 	}
 }
