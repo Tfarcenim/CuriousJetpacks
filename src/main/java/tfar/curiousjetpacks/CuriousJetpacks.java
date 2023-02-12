@@ -39,19 +39,11 @@ public class CuriousJetpacks {
       IEventBus bus = FMLJavaModLoadingContext.get().getModEventBus();
       bus.addListener(this::comms);
       MinecraftForge.EVENT_BUS.addGenericListener(ItemStack.class,this::attachCaps);
-     // MinecraftForge.EVENT_BUS.addListener(this::jump);
 	}
 
 	private void comms(final FMLCommonSetupEvent event) {
 		InterModComms.sendTo("curios", SlotTypeMessage.REGISTER_TYPE, () -> SlotTypePreset.BODY.getMessageBuilder().build());
 	}
-
-	/*private void jump(LivingEvent.LivingJumpEvent e) {
-		if (e.getEntity() instanceof PlayerEntity) {
-			PlayerEntity player = (PlayerEntity) e.getEntityLiving();
-			ItemHandlerHelper.giveItemToPlayer(player,new ItemStack(Items.DIAMOND));
-		}
-	}*/
 
 	public static final ResourceLocation TAG_ID = new ResourceLocation(MODID,"jetpacks");
 
@@ -73,5 +65,4 @@ public class CuriousJetpacks {
 			});
 		}
 	}
-
 }

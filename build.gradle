@@ -4,12 +4,9 @@ buildscript {
         maven {url='https://repo.spongepowered.org/maven/'}
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
         classpath 'org.spongepowered:mixingradle:0.7-SNAPSHOT'
     }
-}
-plugins {
-    id "com.wynprice.cursemaven" version "2.1.0"
 }
 apply plugin: 'net.minecraftforge.gradle'
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
@@ -80,6 +77,15 @@ repositories{
     maven { url = "https://maven.theillusivec4.top/" } // curios
 
     maven {url= "https://maven.blamejared.com/"}
+
+    maven {
+        url "https://cursemaven.com"
+        content {
+            includeGroup "curse.maven"
+        }
+    }
+
+
 }
 
 dependencies {
@@ -94,14 +100,14 @@ dependencies {
     runtimeOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}") // Trinkets, REQUIRED
     compileOnly fg.deobf("top.theillusivec4.curios:curios-forge:${curios_version}:api")
 
-    compile fg.deobf("curse.maven:iron-jetpacks:3173404")
-
-    compile fg.deobf("curse.maven:cucumber:3105891")
+    implementation fg.deobf("curse.maven:cucumber-272335:3507886")
 
     //compile fg.deobf("vazkii.botania:Botania:${botania_version}")
 
     //compile fg.deobf("vazkii.patchouli:Patchouli:${patchouli_version}")
 
+    implementation fg.deobf("curse.maven:iron-jetpacks-284497:3538298")
+    annotationProcessor 'org.spongepowered:mixin:0.8.5:processor'
 
     // Real examples
     // compile 'com.mod-buildcraft:buildcraft:6.0.8:dev'  // adds buildcraft to the dev env
